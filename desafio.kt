@@ -13,16 +13,16 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, 
     fun matricular(usuario: Usuario) {
         // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
         println("Matriculando ${usuario.nome} na formação ${nome}");
-        add.inscritos(usuario);
+        inscritos.add(usuario);
     }
 
     fun matricular(usuarios: List<Usuario>) {
         println();
         println("Matricular Lista da usuários INICIO");
 
-        foreach(usuario in usuarios) {
+        for(usuario in usuarios) {
             println("Matriculando ${usuario.nome} na formação ${nome}");
-            add.inscritos(usuario);
+            inscritos.add(usuario);
         }
         println("Matricular Lista da usuários FIM");
         println();
@@ -30,7 +30,7 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, 
 
     fun listarUsuarios() {
         println("Listar usuarios INICIO");
-        foreach(usuario in usuarios) {
+        for(usuario in inscritos) {
             println("Nome: ${usuario.nome}, idade: ${usuario.idade}")
         }
         println("Listar usuario FIM");
@@ -40,7 +40,7 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, 
     fun listarConteudo() {
         println();
         println("Listar conteudo INICIO");
-        foreach(conteudo in conteudos) {
+        for(conteudo in conteudos) {
             println("Nome: ${conteudo.nome}, Duração: ${conteudo.duracao}, Nivel: ${conteudo.nivel}");
         }
         println("Listar conteudo FIM");
@@ -66,8 +66,8 @@ fun main() {
   
 
     formacao1.matricular(usuario1);
-    formacao1.listarUsuarios;
-    formacao1.listarConteudo;
+    formacao1.listarUsuarios();
+    formacao1.listarConteudo();
 
 
     println("Exemplo com matricula de multiplos usuarios");
@@ -75,7 +75,7 @@ fun main() {
     val usuario2 = Usuario("Usuario 2", 18);
     val usuario3 = Usuario("Usuario 3", 25);
 
-    matricular(listOf(usuario2, usuario3));
-    formacao1.listarUsuarios;
+    formacao1.matricular(listOf(usuario2, usuario3));
+    formacao1.listarUsuarios();
 
 }
